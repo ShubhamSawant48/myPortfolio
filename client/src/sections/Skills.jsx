@@ -7,7 +7,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="Skills" className="min-h-[60vh] flex flex-col justify-center items-center px-6">
+    <section id="skills" className="min-h-[60vh] flex flex-col justify-center items-center px-6">
       <h2 className="text-4xl font-bold text-white mb-12 border-b-2 border-purple-500 pb-2">Skills</h2>
       <div className="flex flex-wrap justify-center gap-4 max-w-4xl">
         {skills.map((skill, index) => (

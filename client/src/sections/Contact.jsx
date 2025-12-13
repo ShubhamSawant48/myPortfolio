@@ -20,7 +20,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="Contact" className="min-h-[80vh] flex flex-col justify-center items-center px-6 pb-20">
+    <section id="contact" className="min-h-[80vh] flex flex-col justify-center items-center px-6 pb-20">
       <h2 className="text-5xl font-bold text-white mb-8">Get In Touch</h2>
       
       {/* Curiosity Quote */}

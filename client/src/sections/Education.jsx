@@ -2,7 +2,7 @@ import React from 'react';
 
 const Education = () => {
   return (
-    <section id="Education" className="min-h-[50vh] flex flex-col justify-center items-center px-6">
+    <section id="education" className="min-h-[50vh] flex flex-col justify-center items-center px-6">
       <h2 className="text-4xl font-bold text-white mb-12">Education</h2>
       
       <div className="relative border-l-2 border-purple-500/30 ml-3 md:ml-0 pl-8 md:pl-10 py-2 max-w-2xl w-full">

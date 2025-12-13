@@ -12,7 +12,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="Projects" className="min-h-screen flex flex-col justify-center items-center px-6 py-20">
+    <section id="projects" className="min-h-screen flex flex-col justify-center items-center px-6 py-20">
       <h2 className="text-4xl font-bold text-white mb-12 border-b-2 border-purple-500 pb-2">Projects</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">

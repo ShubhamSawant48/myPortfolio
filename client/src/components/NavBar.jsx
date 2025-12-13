@@ -16,8 +16,7 @@ export default function NavBar() {
     <nav className="bg-white/6 backdrop-blur rounded-2xl py-3 px-4 shadow-lg border border-white/10">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-white/90" />
-          <div className="text-white font-medium">Aarab Nishchal</div>
+          <div className="text-white font-medium pl-3">Shubham Sawant</div>
         </div>
 
         <div className="hidden md:flex items-center gap-6 text-white/90">
