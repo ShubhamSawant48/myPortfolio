@@ -1,58 +1,64 @@
 import {
-  FaReact, FaNodeJs, FaPython, FaGitAlt, FaGithub,
-  FaHtml5, FaCss3Alt, FaBootstrap
+  FaReact,
+  FaNodeJs,
+  FaPython,
+  FaGitAlt,
+  FaGithub,
+  FaHtml5,
+  FaCss3Alt,
+  FaBootstrap,
 } from "react-icons/fa";
 
 import {
-  SiJavascript, SiMongodb, SiMysql, SiPostman,
-  SiTailwindcss, SiExpress, SiNextdotjs,
-  SiFirebase, SiVercel, SiNetlify
+  SiJavascript,
+  SiMongodb,
+  SiMysql,
+  SiPostman,
+  SiTailwindcss,
+  SiExpress,
+  SiNextdotjs,
+  SiFirebase,
+  SiVercel,
+  SiNetlify,
 } from "react-icons/si";
 
 import { Globe, Cpu, ShieldCheck, Accessibility } from "lucide-react";
 
+/* ===== SKILLS DATA ===== */
 const skills = [
-  { name: "JavaScript", icon: SiJavascript },
-  { name: "React", icon: FaReact },
-  { name: "Next.js", icon: SiNextdotjs },
-  { name: "Node.js", icon: FaNodeJs },
-  { name: "Express.js", icon: SiExpress },
-  { name: "MongoDB", icon: SiMongodb },
-  { name: "MySQL", icon: SiMysql },
-  { name: "Python", icon: FaPython },
-  { name: "Tailwind CSS", icon: SiTailwindcss },
-  { name: "Bootstrap", icon: FaBootstrap },
-  { name: "HTML5", icon: FaHtml5 },
-  { name: "CSS3", icon: FaCss3Alt },
-  { name: "Git", icon: FaGitAlt },
-  { name: "GitHub", icon: FaGithub },
-  { name: "Postman", icon: SiPostman },
-  { name: "REST APIs", icon: Globe },
-  { name: "API Design", icon: Cpu },
-  { name: "CI / CD", icon: ShieldCheck },
-  { name: "Firebase", icon: SiFirebase },
-  { name: "Vercel", icon: SiVercel },
-  { name: "Netlify", icon: SiNetlify },
-  { name: "Accessibility", icon: Accessibility },
+  { name: "JavaScript", icon: SiJavascript, color: "#facc15" },
+  { name: "React", icon: FaReact, color: "#22d3ee" },
+  { name: "Firebase", icon: SiFirebase, color: "#fbbf24" },
+  { name: "Node.js", icon: FaNodeJs, color: "#4ade80" },
+  { name: "Express.js", icon: SiExpress, color: "#e5e7eb" },
+  { name: "MongoDB", icon: SiMongodb, color: "#22c55e" },
+
+  { name: "MySQL", icon: SiMysql, color: "#38bdf8" },
+  { name: "Python", icon: FaPython, color: "#60a5fa" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, color: "#5eead4" },
+  { name: "Bootstrap", icon: FaBootstrap, color: "#c084fc" },
+  { name: "HTML5", icon: FaHtml5, color: "#fb923c" },
+  { name: "CSS3", icon: FaCss3Alt, color: "#3b82f6" },
+
+  { name: "Git", icon: FaGitAlt, color: "#fb7185" },
+  { name: "GitHub", icon: FaGithub, color: "#e5e7eb" },
+  { name: "Postman", icon: SiPostman, color: "#fdba74" },
+  { name: "REST APIs", icon: Globe, color: "#a5b4fc" },
+  { name: "API Design", icon: Cpu, color: "#f9a8d4" },
+  { name: "Vercel", icon: SiVercel, color: "#ffffff" },
 ];
 
-// split skills into 4 rows
-const rows = [
-  skills.slice(0, 6),
-  skills.slice(6, 12),
-  skills.slice(12, 18),
-  skills.slice(18, 24),
-];
+/* ===== SPLIT INTO 4 ROWS ===== */
+const rows = [skills.slice(0, 6), skills.slice(6, 12), skills.slice(12, 18)];
 
 const Skills = () => {
   return (
     <section
       id="skills"
-      className="relative min-h-screen w-full overflow-hidden flex flex-col justify-center gap-10 py-24"
+      className="relative w-screen -ml-[calc((100vw-100%)/2)]
+                 h-screen flex flex-col justify-evenly overflow-hidden"
     >
-      <h2 className="text-4xl font-bold text-white text-center mb-6">
-        Skills
-      </h2>
+      <h2 className="text-4xl font-bold text-white text-center">Skills</h2>
 
       {rows.map((row, rowIndex) => (
         <div key={rowIndex} className="overflow-hidden w-full">
@@ -61,12 +67,16 @@ const Skills = () => {
               rowIndex % 2 === 0 ? "marquee-left" : "marquee-right"
             }`}
           >
-            {[...row, ...row].map((skill, i) => {
+            {[...row, ...row, ...row].map((skill, i) => {
               const Icon = skill.icon;
               return (
-                <div key={i} className="skill-pill">
-                  <Icon size={16} />
-                  <span>{skill.name}</span>
+                <div
+                  key={i}
+                  className="skill-pill"
+                  style={{ "--skill-color": skill.color }}
+                >
+                  <Icon size={16} className="skill-icon" />
+                  <span className="skill-text">{skill.name}</span>
                 </div>
               );
             })}

@@ -8,53 +8,78 @@
 html, body, #root {
   height: 100%;
   background: transparent;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .skills-marquee {
   display: flex;
-  gap: 24px;
+  gap: 50px;
   width: max-content;
+  align-items: center;
 }
 
-/* left to right */
-.marquee-left {
-  animation: marquee-left 26s linear infinite;
-}
-
-/* right to left */
-.marquee-right {
-  animation: marquee-right 30s linear infinite;
-}
+.marquee-left  { animation: marquee-left 30s linear infinite; }
+.marquee-right { animation: marquee-right 30s linear infinite; }
 
 @keyframes marquee-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 @keyframes marquee-right {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
 }
 
-/* ===== SKILL PILL ===== */
 .skill-pill {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   padding: 10px 16px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: white;
-  font-size: 0.9rem;
-  white-space: nowrap;
+
+  /* background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15); */
   backdrop-filter: blur(10px);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
-/* ONLY glow when hovering the pill */
-.skill-pill:hover {
-  transform: scale(1.07);
-  background: rgba(168, 85, 247, 0.22);
-  box-shadow: 0 0 14px rgba(168, 85, 247, 0.55);
+/* DEFAULT COLORS */
+.skill-icon {
+  color: rgba(255,255,255,0.65);
+  transition: color 0.25s ease, filter 0.25s ease;
 }
+
+.skill-text {
+  color: rgba(255,255,255,0.75);
+  transition: color 0.25s ease;
+}
+
+/* 🔥 HOVER — THIS WILL WORK */
+.skill-pill:hover {
+  transform: scale(1.05);
+  /* background: color-mix(in srgb, var(--skill-color) 25%, transparent); */
+  /* box-shadow:
+    0 0 14px color-mix(in srgb, var(--skill-color) 70%, transparent),
+    inset 0 0 8px color-mix(in srgb, var(--skill-color) 40%, transparent); */
+}
+
+.skill-pill:hover .skill-icon {
+  color: var(--skill-color);
+  filter: drop-shadow(0 0 6px var(--skill-color));
+}
+
+.skill-pill:hover .skill-text {
+  color: #ffffff;
+}
+
