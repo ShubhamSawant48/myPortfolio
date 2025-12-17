@@ -27,7 +27,7 @@ const Me = () => {
 
       {/* 2. Info */}
       <h1 className="text-6xl md:text-7xl font-bold mb-4 tracking-tight text-white">
-        Anand <span className="text-purple-400">Nishchal</span>
+        Shubham <span className="text-purple-400">Sawant</span>
       </h1>
 
       <h2 className="text-2xl text-purple-200 font-medium mb-2">
