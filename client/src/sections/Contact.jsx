@@ -1,63 +1,170 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { FaHeart, FaEnvelope, FaLinkedin, FaGithub } from 'react-icons/fa';
+import React, { useState } from "react";
+import { Mail, MapPin, Send } from "lucide-react";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTelegramPlane,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Contact = () => {
-  const [loveCount, setLoveCount] = useState(0);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "General Inquiry",
+    message: "",
+  });
 
-  // Fetch initial love count from DB
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/love')
-      .then(res => setLoveCount(res.data.count))
-      .catch(() => console.log("Backend offline"));
-  }, []);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-  // Update love count in DB
-  const handleLove = () => {
-    axios.post('http://localhost:5000/api/love/add')
-      .then(res => setLoveCount(res.data.count))
-      .catch(() => setLoveCount(prev => prev + 1)); // Optimistic update if offline
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          subject: "General Inquiry",
+          message: "",
+        });
+      } else {
+        alert("Failed to send message");
+      }
+    } catch (err) {
+      alert("Server error. Try again later.");
+    }
   };
 
   return (
-    <section id="contact" className="min-h-[80vh] flex flex-col justify-center items-center px-6 pb-20">
-      <h2 className="text-5xl font-bold text-white mb-8">Get In Touch</h2>
-      
-      {/* Curiosity Quote */}
-      <blockquote className="text-xl text-gray-400 italic mb-10 text-center max-w-lg">
-        "Curiosity didn't kill the cat; it made it a <span className="text-purple-400 not-italic font-bold">Developer</span>."
-      </blockquote>
+    <section
+      id="contact"
+      className="relative min-h-screen w-full px-6 py-24 flex items-center"
+    >
+      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16">
 
-      {/* Social Links */}
-      <div className="flex flex-wrap justify-center gap-6 mb-16">
-        <a href="mailto:your@email.com" className="flex items-center gap-3 px-6 py-3 bg-white/10 rounded-full text-white hover:bg-white/20 transition-all border border-white/5">
-          <FaEnvelope /> Send Email
-        </a>
-        <a href="#" className="flex items-center gap-3 px-6 py-3 bg-[#0A66C2] rounded-full text-white hover:opacity-90 transition-all shadow-lg shadow-blue-500/20">
-          <FaLinkedin /> LinkedIn
-        </a>
-        <a href="#" className="flex items-center gap-3 px-6 py-3 bg-[#333] rounded-full text-white hover:bg-[#444] transition-all border border-white/10">
-          <FaGithub /> GitHub
-        </a>
-      </div>
+        {/* LEFT — FORM */}
+        <div className="bg-white/5 border border-white/20 backdrop-blur-xl rounded-3xl p-8 shadow-2xl">
+          <h3 className="text-2xl font-semibold text-white mb-6">
+            Send a Message
+          </h3>
 
-      {/* Love Count Feature */}
-      <div className="flex flex-col items-center">
-        <button 
-          onClick={handleLove}
-          className="group relative flex items-center justify-center w-20 h-20 bg-linear-to-br from-gray-800 to-black rounded-full border border-gray-700 shadow-2xl hover:border-red-500/50 transition-all active:scale-95"
-        >
-          <FaHeart className="text-3xl text-gray-500 group-hover:text-red-500 transition-colors duration-300 group-active:scale-125" />
-          <div className="absolute -bottom-8 text-sm font-mono text-gray-500 group-hover:text-white transition-colors">
-            {loveCount}
+          <form className="space-y-5" onSubmit={handleSubmit}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name"
+                className="contact-input"
+                required
+              />
+              <input
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Your Email"
+                className="contact-input"
+                required
+              />
+            </div>
+
+            <select
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              className="contact-input"
+            >
+              <option>General Inquiry</option>
+              <option>Collaboration</option>
+              <option>Freelance Work</option>
+              <option>Other</option>
+            </select>
+
+            <textarea
+              name="message"
+              rows="5"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Your Message"
+              className="contact-input resize-none"
+              required
+            />
+
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-2
+                         bg-white text-black font-medium py-3 rounded-xl
+                         hover:bg-purple-200 transition"
+            >
+              <Send size={18} />
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        {/* RIGHT — INFO */}
+        <div className="flex flex-col justify-center text-white">
+          <h2 className="text-5xl font-bold mb-10">Let’s Connect</h2>
+
+          <div className="space-y-6">
+            <h4 className="text-xl tracking-widest text-white/80">
+              Get In Touch
+            </h4>
+
+            <div className="flex items-center gap-4">
+              <div className="info-icon"><Mail /></div>
+              <span className="text-lg">your.email@gmail.com</span>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="info-icon"><MapPin /></div>
+              <span className="text-lg">Mumbai, India</span>
+            </div>
           </div>
-        </button>
-        <p className="mt-10 text-xs text-gray-600 uppercase tracking-widest">
-          Made with Love & MERN
-        </p>
+
+          <div className="mt-12">
+            <h4 className="text-xl tracking-widest text-white/80 mb-6">
+              Socials . . .
+            </h4>
+
+            <div className="flex gap-4">
+              <SocialIcon href="#" icon={FaGithub} />
+              <SocialIcon href="#" icon={FaLinkedin} />
+              <SocialIcon href="#" icon={FaTelegramPlane} />
+              <SocialIcon href="#" icon={FaTwitter} />
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
 };
 
 export default Contact;
+
+/* ---------- Small Component ---------- */
+const SocialIcon = ({ href, icon: Icon }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noreferrer"
+    className="w-12 h-12 rounded-full bg-purple-600/80 hover:bg-purple-500
+               flex items-center justify-center transition hover:scale-110"
+  >
+    <Icon size={20} />
+  </a>
+);

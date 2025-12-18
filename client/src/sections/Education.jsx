@@ -1,32 +1,85 @@
-import React from 'react';
+import React from "react";
+
+const educationData = [
+  {
+    degree: "Bachelor of Technology",
+    field: "Computer Science Engineering",
+    institute: "XYZ University, Mumbai",
+    duration: "2021 – 2025",
+    highlights: [
+      "Strong foundation in computer science fundamentals",
+      "Hands-on experience with software development and problem-solving",
+      "Actively involved in technical and academic projects",
+    ],
+  },
+  {
+    degree: "Higher Secondary Education",
+    field: "Science Stream",
+    institute: "ABC Junior College",
+    duration: "2019 – 2021",
+    highlights: [
+      "Focused on Mathematics, Physics, and Computer Science",
+      "Built analytical thinking and logical problem-solving skills",
+    ],
+  },
+];
 
 const Education = () => {
   return (
-    <section id="education" className="min-h-[50vh] flex flex-col justify-center items-center px-6">
-      <h2 className="text-4xl font-bold text-white mb-12">Education</h2>
-      
-      <div className="relative border-l-2 border-purple-500/30 ml-3 md:ml-0 pl-8 md:pl-10 py-2 max-w-2xl w-full">
-        {/* Item 1 */}
-        <div className="mb-10 relative">
-          <span className="absolute -left-10.75 top-1 w-6 h-6 bg-[#030014] border-4 border-purple-500 rounded-full"></span>
-          <h3 className="text-2xl font-bold text-white">Bachelor of Technology</h3>
-          <p className="text-purple-400 font-medium">Computer Science Engineering</p>
-          <div className="flex justify-between items-center mt-1 text-gray-400 text-sm">
-            <span>XYZ University, Mumbai</span>
-            <span>2021 - 2025</span>
-          </div>
-        </div>
+    <section
+      id="education"
+      className="relative min-h-screen w-full flex flex-col items-center px-6 py-24"
+    >
+      {/* Section Heading */}
+      <h2 className="text-4xl font-bold text-white mb-16 text-center">
+        Education
+        <p className="text-sm text-purple-300 mt-2 font-normal">
+          Academic background and learning journey
+        </p>
+      </h2>
 
-        {/* Item 2 */}
-        <div className="relative">
-          <span className="absolute -left-10.75 top-1 w-6 h-6 bg-[#030014] border-4 border-gray-600 rounded-full"></span>
-          <h3 className="text-xl font-bold text-gray-300">Higher Secondary</h3>
-          <p className="text-gray-500">Science Stream</p>
-          <div className="flex justify-between items-center mt-1 text-gray-500 text-sm">
-            <span>ABC Junior College</span>
-            <span>2019 - 2021</span>
+      {/* Timeline Wrapper */}
+      <div className="relative max-w-4xl w-full">
+        {/* Vertical line */}
+        <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-purple-100" />
+
+        {educationData.map((edu, index) => (
+          <div key={index} className="relative pl-16 mb-16">
+            {/* Timeline Dot */}
+            <span className="absolute left-[6px] top-7 w-4 h-4 rounded-full bg-[#030014] border-4 border-purple-100" />
+
+            {/* Glass Card */}
+            <div className="bg-white/5 border border-white/15 backdrop-blur-xl rounded-2xl p-8 shadow-xl">
+              {/* Header */}
+              <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4">
+                <h3 className="text-2xl font-semibold text-white">
+                  {edu.degree}
+                </h3>
+                <span className="text-sm text-gray-300 mt-1 md:mt-0">
+                  {edu.duration}
+                </span>
+              </div>
+
+              <p className="text-purple-400 font-medium mb-1">
+                {edu.field}
+              </p>
+
+              <p className="text-gray-300 mb-4">
+                {edu.institute}
+              </p>
+
+              {/* Bullet Points */}
+              <ul className="space-y-3 text-gray-300">
+                {edu.highlights.map((point, i) => (
+                  <li key={i} className="flex gap-3">
+                    <span className="mt-2 w-2 h-2 rounded-full bg-purple-400 shrink-0" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </section>
   );

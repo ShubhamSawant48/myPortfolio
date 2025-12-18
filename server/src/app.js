@@ -1,15 +1,15 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const connectDB = require('./config/database');
-require('dotenv').config(); // Load environment variables
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const connectDB = require("./config/database");
+require("dotenv").config(); // Load environment variables
 
 // Import Models
-const Project = require('./models/Project');
-const Skill = require('./models/Skill');
-const Achievement = require('./models/Achievement');
-const Love = require('./models/LoveCount');
-const {BASE_URL} = require('./utils/constants')
+const Project = require("./models/Project");
+const Skill = require("./models/Skill");
+const Achievement = require("./models/Achievement");
+const Love = require("./models/LoveCount");
+const { BASE_URL } = require("./utils/constants");
 
 const app = express();
 
@@ -37,7 +37,7 @@ connectDB()
 // --- API ROUTES ---
 
 // 1. PROJECTS: Fetch all projects
-app.get('/api/projects', async (req, res) => {
+app.get("/api/projects", async (req, res) => {
   try {
     const projects = await Project.find();
     res.json(projects);
@@ -47,7 +47,7 @@ app.get('/api/projects', async (req, res) => {
 });
 
 // 2. SKILLS: Fetch all skills
-app.get('/api/skills', async (req, res) => {
+app.get("/api/skills", async (req, res) => {
   try {
     const skills = await Skill.find();
     res.json(skills);
@@ -57,17 +57,19 @@ app.get('/api/skills', async (req, res) => {
 });
 
 // 3. ACHIEVEMENTS: Fetch all achievements
-app.get('/api/achievements', async (req, res) => {
+app.get("/api/achievements", async (req, res) => {
   try {
     const achievements = await Achievement.find();
     res.json(achievements);
   } catch (err) {
-    res.status(500).json({ message: "Error fetching achievements", error: err });
+    res
+      .status(500)
+      .json({ message: "Error fetching achievements", error: err });
   }
 });
 
 // 4. LOVE COUNT: Get current count (Create if doesn't exist)
-app.get('/api/love', async (req, res) => {
+app.get("/api/love", async (req, res) => {
   try {
     let love = await Love.findOne();
     if (!love) {
@@ -81,7 +83,7 @@ app.get('/api/love', async (req, res) => {
 });
 
 // 5. LOVE COUNT: Increment count (+1)
-app.post('/api/love/add', async (req, res) => {
+app.post("/api/love/add", async (req, res) => {
   try {
     let love = await Love.findOne();
     if (love) {
@@ -94,5 +96,33 @@ app.post('/api/love/add', async (req, res) => {
     res.json(love);
   } catch (err) {
     res.status(500).json({ message: "Error updating love count", error: err });
+  }
+});
+
+app.post("/api/contact", async (req, res) => {
+  try {
+    const { name, email, subject, message } = req.body;
+
+    if (!name || !email || !message) {
+      return res.status(400).json({ message: "Missing required fields" });
+    }
+
+    const newContact = await Contact.create({
+      name,
+      email,
+      subject,
+      message,
+    });
+
+    res.status(201).json({
+      success: true,
+      message: "Message sent successfully",
+      data: newContact,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
   }
 });
