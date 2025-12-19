@@ -20,9 +20,11 @@ import {
   SiFirebase,
   SiVercel,
   SiNetlify,
+  SiRedux,
 } from "react-icons/si";
 
 import { Globe, Cpu, ShieldCheck, Accessibility } from "lucide-react";
+import ScrollReveal from "../components/ScrollReveal";
 
 /* ===== SKILLS DATA ===== */
 const skills = [
@@ -39,7 +41,7 @@ const skills = [
   { name: "Bootstrap", icon: FaBootstrap, color: "#ffffff" },
   { name: "CSS3", icon: FaCss3Alt, color: "#3b82f6" },
   { name: "HTML5", icon: FaHtml5, color: "#fb923c" },
-  
+  { name: "redux", icon: SiRedux, color: "#fbbf24" },
 
   { name: "Git", icon: FaGitAlt, color: "#fb7185" },
   { name: "GitHub", icon: FaGithub, color: "#ffffff" },
@@ -54,37 +56,39 @@ const rows = [skills.slice(0, 6), skills.slice(6, 12), skills.slice(12, 18)];
 
 const Skills = () => {
   return (
-    <section
-      id="skills"
-      className="relative w-screen -ml-[calc((100vw-100%)/2)]
+    <ScrollReveal delay={0.2}>
+      <section
+        id="skills"
+        className="relative w-screen -ml-[calc((100vw-100%)/2)]
                  h-screen flex flex-col justify-evenly overflow-hidden"
-    >
-      <h2 className="text-4xl font-bold text-white text-center">Skills</h2>
+      >
+        <h2 className="text-4xl font-bold text-white text-center">Skills</h2>
 
-      {rows.map((row, rowIndex) => (
-        <div key={rowIndex} className="overflow-hidden w-full">
-          <div
-            className={`skills-marquee ${
-              rowIndex % 2 === 0 ? "marquee-left" : "marquee-right"
-            }`}
-          >
-            {[...row, ...row, ...row].map((skill, i) => {
-              const Icon = skill.icon;
-              return (
-                <div
-                  key={i}
-                  className="skill-pill"
-                  style={{ "--skill-color": skill.color }}
-                >
-                  <Icon size={16} className="skill-icon" />
-                  <span className="skill-text">{skill.name}</span>
-                </div>
-              );
-            })}
+        {rows.map((row, rowIndex) => (
+          <div key={rowIndex} className="overflow-hidden w-full">
+            <div
+              className={`skills-marquee ${
+                rowIndex % 2 === 0 ? "marquee-left" : "marquee-right"
+              }`}
+            >
+              {[...row, ...row, ...row].map((skill, i) => {
+                const Icon = skill.icon;
+                return (
+                  <div
+                    key={i}
+                    className="skill-pill"
+                    style={{ "--skill-color": skill.color }}
+                  >
+                    <Icon size={16} className="skill-icon" />
+                    <span className="skill-text">{skill.name}</span>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-        </div>
-      ))}
-    </section>
+        ))}
+      </section>
+    </ScrollReveal>
   );
 };
 

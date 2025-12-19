@@ -90,14 +90,20 @@ html, body, #root {
   border-radius: 12px;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.2);
-  color: white;
+  color: rgba(255,255,255,0.9);
   outline: none;
   backdrop-filter: blur(10px);
   transition: border 0.25s ease, background 0.25s ease;
+  cursor: pointer;
+}
+
+.contact-input-option {
+  color: black;
+  cursor: pointer;
 }
 
 .contact-input::placeholder {
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.9);
 }
 
 .contact-input:focus {

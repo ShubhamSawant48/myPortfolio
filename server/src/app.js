@@ -9,6 +9,8 @@ const Project = require("./models/Project");
 const Skill = require("./models/Skill");
 const Achievement = require("./models/Achievement");
 const Love = require("./models/LoveCount");
+const Contact = require("./models/Contact");
+
 const { BASE_URL } = require("./utils/constants");
 
 const app = express();
