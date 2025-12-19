@@ -34,18 +34,15 @@ const About = () => {
           </h3>
 
           <p className="text-gray-300 leading-relaxed text-lg mb-6">
-            Hi, I'm a student developer who enjoys breaking things to understand
-            how they work—usually with JavaScript and snacks.
+          Hi, I'm a student developer who likes breaking things just to figure out how to fix them usually with JavaScript and snacks. I build web apps that try their best to work on the first try (no promises though).
           </p>
 
           <p className="text-gray-300 leading-relaxed text-lg mb-6">
-            React and Tailwind are my daily tools, and I’m exploring backend
-            development where bugs multiply rapidly.
+          React and Tailwind are my daily tools, and I'm currently exploring the mysterious land of backend development where bugs go to multiply. Full-stack dreams, coffee-fueled nights, and lots of console.log.
           </p>
 
           <p className="text-gray-300 leading-relaxed text-lg">
-            When I’m not coding, I’m thinking startup ideas, lurking on GitHub,
-            or defending “it works on my machine.”
+          When I'm not coding, I'm either daydreaming startup ideas, lurking on GitHub, or explaining to my friends why 'it works on my machine' is totally valid. I love creating stuff that’s fun, functional, and maybe a little chaotic.
           </p>
         </motion.div>
       </section>
