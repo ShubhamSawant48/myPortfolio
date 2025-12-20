@@ -1,5 +1,6 @@
 // src/components/NavBar.jsx
 import React, { useEffect, useRef, useState } from "react";
+import wizardImg from "../assets/wizard.png";
 
 const links = [
   { id: "me", label: "Me" },
@@ -46,9 +47,13 @@ export default function NavBar() {
       `}
     >
       <div className="flex items-center justify-between">
-        <div className="text-white font-medium pl-3">
-          Shubham Sawant
-        </div>
+        <a
+          href="#me"
+          className="text-white font-medium pl-3 flex gap-3 items-center hover:opacity-90"
+        >
+          <img alt="wizard image" src={wizardImg} className="w-10 h-10" />
+          <span>Shubham Sawant</span>
+        </a>
 
         <div className="hidden md:flex items-center gap-6 text-white/90">
           {links.map((l) => (

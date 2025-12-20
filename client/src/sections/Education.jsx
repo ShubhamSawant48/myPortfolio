@@ -4,10 +4,10 @@ import ScrollReveal from "../components/ScrollReveal";
 
 const educationData = [
   {
-    degree: "Bachelor of Technology",
+    degree: "Bachelor Of Technology",
     field: "Computer Science Engineering",
-    institute: "XYZ University, Mumbai",
-    duration: "2021 – 2025",
+    institute: "Mumbai University",
+    duration: "2022 – 2026",
     highlights: [
       "Strong foundation in computer science fundamentals",
       "Hands-on software development experience",
@@ -17,10 +17,10 @@ const educationData = [
   {
     degree: "Higher Secondary Education",
     field: "Science Stream",
-    institute: "ABC Junior College",
-    duration: "2019 – 2021",
+    institute: "Maharshi Dayanand College of Arts, Science & Commerce",
+    duration: "2021 – 2022",
     highlights: [
-      "Focused on Mathematics, Physics, and Computer Science",
+      "Focused on Mathematics, Physics, Chemistry , and Biology",
       "Built strong analytical and logical thinking",
     ],
   },
@@ -73,7 +73,7 @@ const Education = () => {
                   </span>
                 </div>
 
-                <p className="text-purple-400 font-medium mb-1">
+                <p className="text-white font-medium mb-1">
                   {edu.field}
                 </p>
                 <p className="text-gray-300 mb-4">

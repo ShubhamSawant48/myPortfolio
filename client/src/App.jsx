@@ -12,11 +12,12 @@ import Skills from "./sections/Skills";
 import Achievements from "./sections/Achievements";
 import Education from "./sections/Education";
 import Contact from "./sections/Contact";
+import ScrollProgress from "./components/ScrollProgress";
 
 export default function App() {
   return (
-    <div className="relative min-h-screen overflow-x-hidden font-sans text-white selection:bg-purple-500 selection:text-white">
-      
+    <div className="relative font-sans text-white selection:bg-purple-500 selection:text-white">
+      <ScrollProgress />
       <CanvasBackground />
 
       {/* Navbar (DO NOT wrap in header/sticky) */}
@@ -36,4 +37,3 @@ export default function App() {
     </div>
   );
 }
-

@@ -5,7 +5,7 @@ import {
   FaTwitter,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import profileImg from "../assets/profile1.png";
+import profileImg from "../assets/profile.png";
 import { motion } from "framer-motion";
 
 const Me = () => {

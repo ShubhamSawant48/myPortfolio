@@ -157,7 +157,7 @@ const Contact = () => {
                   <MapPin />
                 </div>
                 <span className="text-lg">
-                  Mumbai, India
+                  Mumbai, Maharastra, India
                 </span>
               </div>
             </div>

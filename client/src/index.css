@@ -5,15 +5,19 @@
 .readable { text-shadow: 0 12px 30px rgba(4,6,10,0.38); }
 
 /* optional: ensure body background is transparent so canvas shows */
-html, body, #root {
-  height: 100%;
-  background: transparent;
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+  scrollbar-width: none;
 }
+
+#root {
+  overflow: hidden;
+}
+
 
 .skills-marquee {
   display: flex;
@@ -122,4 +126,38 @@ html, body, #root {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* ===== Custom Thin Purple Scrollbar ===== */
+
+/* Width */
+body::-webkit-scrollbar {
+  display: none;               
+}
+
+/* Track (background) */
+body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.35); /* dark contrast so it stands out */
+  border-radius: 999px;
+}
+
+/* Thumb (the moving bar) */
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #c084fc,   /* light purple */
+    #7c3aed    /* deep purple */
+  );
+  border-radius: 999px;
+  box-shadow:
+    0 0 8px rgba(168, 85, 247, 0.9); /* glow so it never blends */
+}
+
+/* Hover effect */
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #d8b4fe,
+    #8b5cf6
+  );
 }
