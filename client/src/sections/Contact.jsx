@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Mail, MapPin, Send } from "lucide-react";
 import {
   FaGithub,
+  FaInstagram,
   FaLinkedin,
   FaTelegramPlane,
   FaTwitter,
@@ -53,10 +54,9 @@ const Contact = () => {
     <ScrollReveal>
       <section
         id="contact"
-        className="relative min-h-screen w-full px-6 py-24 flex items-center"
+        className="relative w-full px-6 pt-24 flex items-center"
       >
         <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-20">
-
           {/* LEFT — FORM (BIG SLIDE UP) */}
           <motion.div
             initial={{ opacity: 0, y: 180 }}
@@ -97,10 +97,10 @@ const Contact = () => {
                 onChange={handleChange}
                 className="contact-input"
               >
-                <option>General Inquiry</option>
-                <option>Collaboration</option>
-                <option>Freelance Work</option>
-                <option>Other</option>
+                <option className="contact-input-option">General Inquiry</option>
+                <option className="contact-input-option">Collaboration</option>
+                <option className="contact-input-option">Freelance Work</option>
+                <option className="contact-input-option">Other</option>
               </select>
 
               <textarea
@@ -134,9 +134,7 @@ const Contact = () => {
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
             className="flex flex-col justify-center text-white"
           >
-            <h2 className="text-5xl font-bold mb-10">
-              Let’s Connect
-            </h2>
+            <h2 className="text-5xl font-bold mb-10">Let’s Connect</h2>
 
             <div className="space-y-6">
               <h4 className="text-xl tracking-widest text-white/80">
@@ -147,18 +145,14 @@ const Contact = () => {
                 <div className="info-icon">
                   <Mail />
                 </div>
-                <span className="text-lg">
-                  sawantshubham736@gmail.com
-                </span>
+                <span className="text-lg">sawantshubham736@gmail.com</span>
               </div>
 
               <div className="flex items-center gap-4">
                 <div className="info-icon">
                   <MapPin />
                 </div>
-                <span className="text-lg">
-                  Mumbai, Maharastra, India
-                </span>
+                <span className="text-lg">Mumbai, Maharastra, India</span>
               </div>
             </div>
 
@@ -174,15 +168,20 @@ const Contact = () => {
                   icon={FaGithub}
                 />
                 <SocialIcon
+                  href="https://www.instagram.com/shubhaam.ss?igsh=OGRhenEyOGs2ZTAx"
+                  icon={FaInstagram}
+                />
+                <SocialIcon
                   href="https://www.linkedin.com/in/shubham-sawant-145477319/"
                   icon={FaLinkedin}
                 />
-                <SocialIcon href="#" icon={FaTelegramPlane} />
-                <SocialIcon href="#" icon={FaTwitter} />
+                <SocialIcon
+                  href="https://x.com/sawant_shub_48"
+                  icon={FaTwitter}
+                />
               </div>
             </div>
           </motion.div>
-
         </div>
       </section>
     </ScrollReveal>

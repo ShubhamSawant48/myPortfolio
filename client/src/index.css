@@ -104,7 +104,6 @@ html, body {
 
 .contact-input-option {
   color: black;
-  cursor: pointer;
 }
 
 .contact-input::placeholder {
@@ -161,3 +160,4 @@ body::-webkit-scrollbar-thumb:hover {
     #8b5cf6
   );
 }
+

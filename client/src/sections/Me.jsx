@@ -4,6 +4,7 @@ import {
   FaLinkedin,
   FaTwitter,
   FaMapMarkerAlt,
+  FaInstagram,
 } from "react-icons/fa";
 import profileImg from "../assets/profile.png";
 import { motion } from "framer-motion";
@@ -92,7 +93,7 @@ const Me = () => {
               </a>
 
               <a
-                href="#"
+                href="https://x.com/sawant_shub_48"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-100 hover:text-blue-300 transition hover:scale-110"

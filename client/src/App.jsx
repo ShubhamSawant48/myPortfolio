@@ -13,6 +13,7 @@ import Achievements from "./sections/Achievements";
 import Education from "./sections/Education";
 import Contact from "./sections/Contact";
 import ScrollProgress from "./components/ScrollProgress";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -33,7 +34,9 @@ export default function App() {
           <Education />
           <Contact />
         </div>
+        
       </main>
+      <Footer />
     </div>
   );
 }
