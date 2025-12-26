@@ -37,14 +37,15 @@ export default function NavBar() {
   return (
     <nav
       className={`
-        fixed top-4 left-1/2 -translate-x-1/2
-        z-50 w-[90vw] max-w-7xl
-        bg-white/6 backdrop-blur
-        rounded-2xl py-3 px-4
-        shadow-lg border border-white/10
-        transition-transform duration-300 ease-out
-        ${show ? "translate-y-0" : "-translate-y-24"}
-      `}
+    hidden md:block
+    fixed top-4 left-1/2 -translate-x-1/2
+    z-50 w-[90vw] max-w-7xl
+    bg-white/6 backdrop-blur
+    rounded-2xl py-3 px-4
+    shadow-lg border border-white/10
+    transition-transform duration-300 ease-out
+    ${show ? "translate-y-0" : "-translate-y-24"}
+  `}
     >
       <div className="flex items-center justify-between">
         <a

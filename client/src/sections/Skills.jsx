@@ -60,8 +60,17 @@ const Skills = () => {
     <ScrollReveal delay={0.2}>
       <section
         id="skills"
-        className="relative w-screen -ml-[calc((100vw-100%)/2)]
-                 h-screen flex flex-col justify-evenly overflow-hidden"
+        className="
+    relative
+    left-1/2
+    right-1/2
+    -ml-[50vw]
+    -mr-[50vw]
+    min-h-screen
+    w-screen
+    overflow-hidden
+    flex flex-col justify-evenly
+  "
       >
         <h2 className="text-4xl font-bold text-white text-center">Skills</h2>
 

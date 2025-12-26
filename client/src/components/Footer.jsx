@@ -5,7 +5,7 @@ const Footer = () => {
   const [showLoveBtn, setShowLobeBtn] = useState(false);
 
   return (
-    <footer className="relative z-10 mt-2 bg-black/40 backdrop-blur-xl border-t border-white/10">
+    <footer className="relative z-10 mt-10 bg-black/40 backdrop-blur-xl border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* TOP GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-gray-300">
@@ -105,9 +105,7 @@ const Footer = () => {
           <p>
             If this made you smile, tap the{" "}
             <button
-              onClick={() => {
-                showLoveBtn = setShowLobeBtn(!showLoveBtn);
-              }}
+              onClick={() => setShowLobeBtn((prev) => !prev)}
             >
               {!showLoveBtn ? "♡" : "❤️"}
             </button>

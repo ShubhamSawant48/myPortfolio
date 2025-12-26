@@ -21,8 +21,7 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed right-3 top-1/2 -translate-y-1/2 h-30 w-1 z-9999"
-    >
+    <div className="hidden md:block fixed right-3 top-1/2 -translate-y-1/2 h-30 w-1 z-9999">
       {/* Track */}
       <div className="absolute inset-0 bg-black/40 rounded-full" />
 

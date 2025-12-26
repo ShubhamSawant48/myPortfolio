@@ -54,9 +54,9 @@ const Contact = () => {
     <ScrollReveal>
       <section
         id="contact"
-        className="relative w-full px-6 pt-24 flex items-center"
+        className="relative w-full px-6 pt-24 pb-32 flex items-center"
       >
-        <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-20">
+        <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20">
           {/* LEFT — FORM (BIG SLIDE UP) */}
           <motion.div
             initial={{ opacity: 0, y: 180 }}
@@ -97,7 +97,9 @@ const Contact = () => {
                 onChange={handleChange}
                 className="contact-input"
               >
-                <option className="contact-input-option">General Inquiry</option>
+                <option className="contact-input-option">
+                  General Inquiry
+                </option>
                 <option className="contact-input-option">Collaboration</option>
                 <option className="contact-input-option">Freelance Work</option>
                 <option className="contact-input-option">Other</option>
@@ -132,16 +134,23 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.9, ease: "easeOut", delay: 0.15 }}
-            className="flex flex-col justify-center text-white"
+            className="
+  flex flex-col justify-center
+  text-white
+  text-center md:text-left
+  items-center md:items-start
+"
           >
-            <h2 className="text-5xl font-bold mb-10">Let’s Connect</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 md:mb-10">
+              Let’s Connect
+            </h2>
 
             <div className="space-y-6">
               <h4 className="text-xl tracking-widest text-white/80">
                 Get In Touch
               </h4>
 
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4 justify-center md:justify-start">
                 <div className="info-icon">
                   <Mail />
                 </div>
@@ -162,7 +171,7 @@ const Contact = () => {
                 Socials . . .
               </h4>
 
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center md:justify-start">
                 <SocialIcon
                   href="https://github.com/ShubhamSawant48"
                   icon={FaGithub}

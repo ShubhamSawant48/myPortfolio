@@ -47,7 +47,7 @@ const Me = () => {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
           className="max-w-xl text-center md:text-left"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4">
             Shubham <span className="text-purple-400">Sawant</span>
           </h1>
 

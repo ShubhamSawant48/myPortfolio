@@ -188,3 +188,10 @@ body::-webkit-scrollbar-thumb:hover {
 .animate-fadeIn {
   animation: fadeIn 0.9s ease-out forwards;
 }
+
+@media (max-width: 640px) {
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
