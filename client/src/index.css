@@ -195,3 +195,9 @@ body::-webkit-scrollbar-thumb:hover {
     padding-right: 1rem;
   }
 }
+
+/* ===== STOP SKILLS MARQUEE WHEN FOOTER IS VISIBLE ===== */
+.pause-marquee .marquee-left,
+.pause-marquee .marquee-right {
+  animation-play-state: paused !important;
+}

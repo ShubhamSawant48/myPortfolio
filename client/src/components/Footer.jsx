@@ -1,11 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   const [showLoveBtn, setShowLobeBtn] = useState(false);
+  const footerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        document.documentElement.classList.toggle(
+          "pause-marquee",
+          entry.isIntersecting
+        );
+      },
+      { threshold: 0.1 }
+    );
+
+    if (footerRef.current) observer.observe(footerRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <footer className="relative z-10 mt-10 bg-black/40 backdrop-blur-xl border-t border-white/10">
+    <footer
+      ref={footerRef}
+      className="relative z-10 bg-black/40 backdrop-blur-xl border-t border-white/10"
+    >
+      {/* rest of your footer unchanged */}
+
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* TOP GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-gray-300">
@@ -104,9 +126,7 @@ const Footer = () => {
         <div className="flex flex-col text-center justify-center text-sm text-gray-400">
           <p>
             If this made you smile, tap the{" "}
-            <button
-              onClick={() => setShowLobeBtn((prev) => !prev)}
-            >
+            <button onClick={() => setShowLobeBtn((prev) => !prev)}>
               {!showLoveBtn ? "♡" : "❤️"}
             </button>
             {"  "}— Shubham Sawant

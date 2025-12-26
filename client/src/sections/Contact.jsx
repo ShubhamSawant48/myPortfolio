@@ -54,7 +54,7 @@ const Contact = () => {
     <ScrollReveal>
       <section
         id="contact"
-        className="relative w-full px-6 pt-24 pb-32 flex items-center"
+        className="relative w-full px-6 pt-24 flex items-center"
       >
         <div className="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20">
           {/* LEFT — FORM (BIG SLIDE UP) */}
