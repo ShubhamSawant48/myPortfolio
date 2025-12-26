@@ -42,6 +42,7 @@ const skills = [
   { name: "CSS3", icon: FaCss3Alt, color: "#3b82f6" },
   { name: "HTML5", icon: FaHtml5, color: "#fb923c" },
   { name: "redux", icon: SiRedux, color: "#fbbf24" },
+  // jwt
 
   { name: "Git", icon: FaGitAlt, color: "#fb7185" },
   { name: "GitHub", icon: FaGithub, color: "#ffffff" },

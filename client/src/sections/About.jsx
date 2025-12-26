@@ -34,7 +34,7 @@ const About = () => {
           </h3>
 
           <p
-            className="text-gray-300 leading-relaxed text-lg mb-6 hover:text-black transition-transform duration-200"
+            className="text-gray-300 leading-relaxed text-lg mb-6 transition-transform duration-200"
           >
             Hi, I'm a student developer who likes breaking things just to figure
             out how to fix them usually with JavaScript and snacks. I build web
@@ -42,14 +42,14 @@ const About = () => {
             though).
           </p>
 
-          <p className="text-gray-300 leading-relaxed text-lg mb-6 hover:text-black transition-transform duration-200">
+          <p className="text-gray-300 leading-relaxed text-lg mb-6 transition-transform duration-200">
             React and Tailwind are my daily tools, and I'm currently exploring
             the mysterious land of backend development where bugs go to
             multiply. Full-stack dreams, coffee-fueled nights, and lots of
             console.log.
           </p>
 
-          <p className="text-gray-300 leading-relaxed text-lg hover:text-black transition-transform duration-200">
+          <p className="text-gray-300 leading-relaxed text-lg transition-transform duration-200">
             When I'm not coding, I'm either daydreaming startup ideas, lurking
             on GitHub, or explaining to my friends why 'it works on my machine'
             is totally valid. I love creating stuff that’s fun, functional, and
