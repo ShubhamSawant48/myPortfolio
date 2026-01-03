@@ -20,19 +20,6 @@ app.use(express.json()); // Allow parsing JSON data sent from frontend
 // If you have a .env file, use process.env.MONGO_URI
 // Otherwise, it falls back to your local MongoDB
 
-connectDB()
-  .then(async () => {
-    console.log("database connected successfully...");
-
-    app.listen(process.env.PORT, () => {
-      console.log("server established successfully...");
-    });
-  })
-  .catch((err) => {
-    console.error("error occurred while connecting db:", err.message);
-    process.exit(1);
-  });
-
 // --- API ROUTES ---
 
 // 1. PROJECTS: Fetch all projects
@@ -47,9 +34,7 @@ app.get("/api/projects", async (req, res) => {
 
 // 2. SKILLS: Fetch all skills
 
-
 // 3. ACHIEVEMENTS: Fetch all achievements
-
 
 // // 4. LOVE COUNT: Get current count (Create if doesn't exist)
 // app.get("/api/love", async (req, res) => {
@@ -109,3 +94,17 @@ app.post("/api/contact", async (req, res) => {
     });
   }
 });
+
+connectDB()
+  .then(async () => {
+    console.log("database connected successfully...");
+
+    app.listen(process.env.PORT, () => {
+      console.log("server established successfully...");
+    });
+  })
+  .catch((err) => {
+    console.error("error occurred while connecting db:", err.message);
+    process.exit(1);
+  });
+    

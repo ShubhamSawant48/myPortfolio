@@ -4,7 +4,6 @@ import {
   FaLinkedin,
   FaTwitter,
   FaMapMarkerAlt,
-  FaInstagram,
 } from "react-icons/fa";
 import profileImg from "../assets/profile.png";
 import { motion } from "framer-motion";

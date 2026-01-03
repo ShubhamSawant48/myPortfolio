@@ -16,10 +16,8 @@ import {
   SiPostman,
   SiTailwindcss,
   SiExpress,
-  SiNextdotjs,
   SiFirebase,
   SiVercel,
-  SiNetlify,
   SiRedux,
 } from "react-icons/si";
 
@@ -60,17 +58,7 @@ const Skills = () => {
     <ScrollReveal delay={0.2}>
       <section
         id="skills"
-        className="
-    relative
-    left-1/2
-    right-1/2
-    -ml-[50vw]
-    -mr-[50vw]
-    min-h-screen
-    w-screen
-    overflow-hidden
-    flex flex-col justify-evenly
-  "
+        className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] min-h-screen w-screen overflow-hidden flex flex-col justify-evenly"
       >
         <h2 className="text-4xl font-bold text-white text-center">Skills</h2>
 
